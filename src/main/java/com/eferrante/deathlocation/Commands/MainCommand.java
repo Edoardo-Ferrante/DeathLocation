@@ -31,17 +31,14 @@ public class MainCommand implements CommandExecutor, TabCompleter {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player p = (Player) sender;
-            if (p.hasPermission("deathlocation.admin")) {
+            if (p.isOp() || p.hasPermission("deathlocation.admin")) {
                 if (args.length > 0) {
                     if (args[0].equalsIgnoreCase("reload")) {
                         plugin.reloadConfig();
                         p.sendMessage(MiniMessage.miniMessage().deserialize(plugin.getConfig().getString("messages.reloadConfig")));
-                        return true;
-                    } else if (args[0].equalsIgnoreCase("help")) {
+                    }
+                    if (args[0].equalsIgnoreCase("help")) {
                         sendHelpMessage(p);
-                        return true;
-                    } else {
-                        p.sendMessage(MiniMessage.miniMessage().deserialize(plugin.getConfig().getString("messages.unknownCommand")));
                     }
                 } else {
                     sendHelpMessage(p);
@@ -52,7 +49,6 @@ public class MainCommand implements CommandExecutor, TabCompleter {
         }
         return false;
     }
-
 
     @Override
     public List<String> onTabComplete(CommandSender commandSender, Command command, String alias, String[] args) {
@@ -70,4 +66,3 @@ public class MainCommand implements CommandExecutor, TabCompleter {
         return Collections.emptyList();
     }
 }
-
