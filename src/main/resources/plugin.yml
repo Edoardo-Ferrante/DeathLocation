@@ -1,9 +1,13 @@
 name: DeathLocation
 version: '${project.version}'
 main: com.eferrante.deathlocation.DeathLocation
-author: "Edoardo Ferrante"
+author: "EdoardoF"
+description: "Simple plugin that sends coordinates of where a player dies"
 api-version: '1.20'
 commands:
   deathlocation:
     description: Main command for DeathLocation plugin
     aliases: [dl]
+permissions:
+  deathlocation.admin:
+    default: false
