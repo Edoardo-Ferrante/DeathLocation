@@ -1,0 +1,7 @@
+settings:
+  deathLocEnabled: true # Enable/Disable Death Location Feature
+  publicAnnounce: false # If true, the whole server will receive
+messages:
+  deathLocMessage: "<#ff63f5>Hey!, you died at X: %x_num% Y: %y_num% Z: %z_num%"
+  publicDeathLocMessage: "<#ff63f5>%player% just died at %x_num% Y: %y_num% Z: %z_num%"
+  reloadConfig: "<green>Successfully reloaded config!"
